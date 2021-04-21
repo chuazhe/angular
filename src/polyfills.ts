@@ -54,6 +54,9 @@
  *
  */
 
+
+//  Different browsers have different levels of support of the web standards. Polyfills help normalize those differences. 
+//  You can read more about browser support guide about the browsers supported by Angular 
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
