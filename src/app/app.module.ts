@@ -8,17 +8,19 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactusComponent } from './contactus/contactus.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { StocksService } from './services/stocks.service';
+import { SummaryComponent } from './components/summary/summary.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ContactusComponent
+    ContactusComponent,
+    SummaryComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  providers: [[StocksService]],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -3,6 +3,7 @@
 // looks at these annotations and uses them with the AppComponent controller class to
 // create the component at runtime.
 import { Component } from '@angular/core';
+import { StocksService, StockInterface } from './services/stocks.service';
 
 // The @Component annotation declares that this class is a component by accepting an
 // object. It has a selector property that declares the HTML selector of the component.
@@ -14,8 +15,19 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'Angular';
+
+  // stocks: Array<StockInterface> = [{symbol: "AAPL", lastTradePriceOnly:123, change: 123,changeInPercent:123}];
+  stocks: Array<StockInterface> = [];
+  abcd: number = 124;
+
+  // optional chaining
+  constructor(service: StocksService) {
+    service?.load(['GOOG'])?.subscribe((stocks) => {
+      this.stocks = stocks;
+    });
+  }
 }
