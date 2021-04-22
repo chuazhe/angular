@@ -5,9 +5,11 @@ import { ManageComponent } from './components/manage/manage.component';
 
 const routes: Routes = [
   {
+  // Default path
   path: '',
   component: DashboardComponent
   },
+  // path with /manage
   {
   path: 'manage',
   component: ManageComponent
