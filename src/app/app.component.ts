@@ -18,16 +18,17 @@ import { StocksService, StockInterface } from './services/stocks.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Angular';
+  title = 'Angular in Development';
+  stocks: Array<StockInterface> = [];
 
   // stocks: Array<StockInterface> = [{symbol: "AAPL", lastTradePriceOnly:123, change: 123,changeInPercent:123}];
-  stocks: Array<StockInterface> = [];
-  abcd: number = 124;
+  // stocks: Array<StockInterface> = [];
+  // abcd: number = 0;
 
-  // optional chaining
-  constructor(service: StocksService) {
-    service?.load(['GOOG'])?.subscribe((stocks) => {
-      this.stocks = stocks;
-    });
-  }
+  // // optional chaining
+  // constructor(service: StocksService) {
+  //   service?.load(['GOOG'])?.subscribe((stocks) => {
+  //     this.stocks = stocks;
+  //   });
+  // }
 }
