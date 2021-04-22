@@ -5,19 +5,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ContactusComponent } from './contactus/contactus.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { StocksService } from './services/stocks.service';
 import { SummaryComponent } from './components/summary/summary.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ContactusComponent,
     SummaryComponent,
+    DashboardComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [[StocksService]],
