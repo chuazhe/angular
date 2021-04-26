@@ -1,0 +1,8 @@
+ng generate component components/dashboard
+
+
+****************************************
+Deploy Angular project to Github Page
+****************************************
+ng add angular-cli-ghpages
+ng deploy --base-href=/<repository name>/
