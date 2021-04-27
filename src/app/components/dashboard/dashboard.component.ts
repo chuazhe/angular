@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   stocks: Array<StockInterface> = [];
   symbols: Array<string> = [];
 
-  constructor(private service: StocksService) {
+  constructor (private service: StocksService) {
     this.symbols = service.get();
   }
 
