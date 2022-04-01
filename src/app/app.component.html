@@ -1,17 +1,27 @@
-<!-- src/app/app.component.html: application layout page -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Stock Tracker</span>
-      <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" [routerLink]="['/']">Dashboard</a>
-        <a class="mdl-navigation__link" [routerLink]="['/']">Dashboard</a>
-        <a class="mdl-navigation__link" [routerLink]="['/manage']">Manage</a>
-      </nav>
-    </div>
-  </header>
-  <main class="mdl-layout__content" style="padding: 20px;">
+<body class="d-flex text-center text-white bg-dark">
+  <div class="cover-container d-flex p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
+        <!-- <h3 class="float-md-start mb-0">Cover</h3> -->
+        <nav class="nav fixed-top justify-content-center" [ngClass]="{'navbar-inverse' : isScrolled}">
+          <li *ngFor="let item of menuItems">
+            <a class="nav-link" [routerLink]="item.pageUrl" 
+               routerLinkActive="active" >
+               {{item.title}}
+            </a>
+          </li>
+        </nav>
+      </div>
+    </header>
+
     <router-outlet></router-outlet>
-  </main>
-</div>
+
+    <footer class="mt-auto text-white-50">
+      <p>
+        Handcrafted by Chua Wei Zhe
+        <!-- <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by
+        <a href="https://twitter.com/mdo" class="text-white">@mdo</a>. -->
+      </p>
+    </footer>
+  </div>
+</body>

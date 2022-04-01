@@ -1,7 +1,6 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
-// Karma/Jasmine: open-source testing framework for JavaScript
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -26,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/Angular'),
+      dir: require('path').join(__dirname, './coverage/my-page'),
       subdir: '.',
       reporters: [
         { type: 'html' },

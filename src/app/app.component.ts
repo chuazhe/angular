@@ -1,34 +1,36 @@
-// First, you import the Component annotation.
-// It’s used to decorate the App component by adding details that are related to the component but aren’t part of its controller logic, which is the AppComponent class. Angular
-// looks at these annotations and uses them with the AppComponent controller class to
-// create the component at runtime.
-import { Component } from '@angular/core';
-import { StocksService, StockInterface } from './services/stocks.service';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 
-// The @Component annotation declares that this class is a component by accepting an
-// object. It has a selector property that declares the HTML selector of the component.
-// That means the component is used in the template by adding an HTML tag <app-root>
-// </app-root>.
-// The templateUrl property declares a link to a template containing an HTML template. Likewise, the styleUrls property contains an array of links to any CSS files that
-// should be loaded for this component. The @Component annotation can have more
-// properties, and you’ll see a few more in action in this chapter
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'Angular in Development';
-  stocks: Array<StockInterface> = [];
+export class AppComponent implements OnInit, OnDestroy {
+  isScrolled = false;
 
-  // stocks: Array<StockInterface> = [{symbol: "AAPL", lastTradePriceOnly:123, change: 123,changeInPercent:123}];
-  // stocks: Array<StockInterface> = [];
-  // abcd: number = 0;
+  menuItems = [
+    { title: 'Home', pageUrl: 'home' },
+    { title: 'Experience', pageUrl: 'experience' },
+    { title: 'Education', pageUrl: 'education' },
+    { title: 'Skills', pageUrl: 'skills' },
+    { title: 'Projects', pageUrl: 'projects' },
+    { title: 'Contact', pageUrl: 'contact-page' },
+  ];
 
-  // // optional chaining
-  // constructor(service: StocksService) {
-  //   service?.load(['GOOG'])?.subscribe((stocks) => {
-  //     this.stocks = stocks;
-  //   });
-  // }
+  ngOnInit() {
+    window.addEventListener('scroll', this.scrollEvent, true);
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('scroll', this.scrollEvent, true);
+  }
+
+  scrollEvent = (event: any): void => {
+    var n = event.srcElement.scrollTop;
+    if (n > 0) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
+  };
 }
